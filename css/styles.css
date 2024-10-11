@@ -1,0 +1,98 @@
+ body {
+     font-family: 'Poppins', sans-serif;
+     text-align: center;
+     margin: 0;
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: linear-gradient(135deg, #00c6ff, #0072ff);
+     animation: gradient 5s ease infinite;
+ }
+
+ @keyframes gradient {
+     0% {
+         background: linear-gradient(135deg, #00c6ff, #0072ff);
+     }
+
+     50% {
+         background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+     }
+
+     100% {
+         background: linear-gradient(135deg, #00c6ff, #0072ff);
+     }
+ }
+
+ h1 {
+     font-size: 48px;
+     color: #ffffff;
+     margin-bottom: 30px;
+     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+     animation: slide-in 0.5s ease forwards;
+ }
+
+ @keyframes slide-in {
+     from {
+         transform: translateY(-50px);
+         opacity: 0;
+     }
+
+     to {
+         transform: translateY(0);
+         opacity: 1;
+     }
+ }
+
+ #temporizador {
+     font-size: 72px;
+     margin-bottom: 30px;
+     color: #fff;
+     background-color: rgba(0, 0, 0, 0.6);
+     padding: 30px;
+     border-radius: 15px;
+     border: 5px solid #ffffff;
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+     width: 150px;
+     transition: transform 0.3s, box-shadow 0.3s;
+     animation: pulse 1s infinite;
+ }
+
+ @keyframes pulse {
+     0% {
+         transform: scale(1);
+     }
+
+     50% {
+         transform: scale(1.05);
+     }
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ button {
+     padding: 15px 35px;
+     font-size: 20px;
+     cursor: pointer;
+     border: 2px solid #fff;
+     border-radius: 50px;
+     background-color: transparent;
+     color: #fff;
+     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+     margin: 5px;
+ }
+
+ button:hover {
+     background-color: #ffffff;
+     color: #0072ff;
+     box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+     transform: translateY(-3px);
+ }
+
+ button:active {
+     transform: translateY(0);
+ }

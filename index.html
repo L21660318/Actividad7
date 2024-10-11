@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador Animado</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Temporizador Animado</h1>
+    <div id="temporizador">60</div>
+    <button id="iniciar-temporizador">Iniciar Temporizador</button>
+    <button id="reiniciar-temporizador" disabled>Reiniciar Temporizador</button>
+
+    <script>
+        // Variables
+        let tiempo = 60;
+        let temporizadorElemento = document.getElementById('temporizador');
+        let intervalo;
+        let temporizadorActivo = false;
+
+        // Función para reducir el tiempo
+        function reducirTiempo() {
+            tiempo--;  // Reducir el tiempo en 1
+            temporizadorElemento.textContent = tiempo;
+
+            // Detener el temporizador cuando llegue a 0
+            if (tiempo <= 0) {
+                clearInterval(intervalo); // Detener el intervalo
+                temporizadorElemento.textContent = "0"; // Muestra 0 al final
+                temporizadorActivo = false;
+                document.getElementById('reiniciar-temporizador').disabled = false; // Habilitar botón de reiniciar
+            }
+        }
+
+        // Función para iniciar el temporizador
+        function iniciarTemporizador() {
+            if (!temporizadorActivo) {
+                temporizadorActivo = true; // Marcar que el temporizador está activo
+                intervalo = setInterval(reducirTiempo, 1000); // Ejecutar cada 1000 ms (1 segundo)
+                document.getElementById('reiniciar-temporizador').disabled = true; // Deshabilitar botón de reiniciar
+            }
+        }
+
+        // Función para reiniciar el temporizador
+        function reiniciarTemporizador() {
+            clearInterval(intervalo); // Detener el intervalo
+            tiempo = 50; // Reiniciar el tiempo
+            temporizadorElemento.textContent = tiempo; // Actualizar la pantalla
+            temporizadorActivo = false; // Marcar que el temporizador no está activo
+            document.getElementById('reiniciar-temporizador').disabled = true; // Deshabilitar botón de reiniciar
+        }
+
+        // Asociar los eventos click a los botones
+        document.getElementById('iniciar-temporizador').addEventListener('click', iniciarTemporizador);
+        document.getElementById('reiniciar-temporizador').addEventListener('click', reiniciarTemporizador);
+    </script>
+</body>
+
+</html>
